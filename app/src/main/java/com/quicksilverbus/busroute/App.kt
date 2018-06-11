@@ -10,6 +10,7 @@ class App : Application() {
 
     companion object {
         lateinit var mAppComponent: AppComponent
+        fun appComponent() = mAppComponent
     }
 
     override fun onCreate() {

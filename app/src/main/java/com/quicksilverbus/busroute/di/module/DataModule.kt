@@ -2,6 +2,8 @@ package com.quicksilverbus.busroute.di.module
 
 import android.app.Application
 import com.quicksilverbus.busroute.BuildConfig
+import com.quicksilverbus.busroute.data.remote.RestApi
+import com.quicksilverbus.busroute.data.remote.RoutesRemoteDataSource
 import dagger.Module
 import dagger.Provides
 import okhttp3.Cache
@@ -34,13 +36,19 @@ class DataModule {
 
     @Provides
     @Singleton
-    fun providesRetrofit(okHttpClient: OkHttpClient): Retrofit {
-        return Retrofit.Builder()
+    fun providesApi(okHttpClient: OkHttpClient): RestApi {
+        val retrofit = Retrofit.Builder()
                 .baseUrl(BuildConfig.API_ENDPOINT)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClient)
                 .build()
+        return retrofit.create(RestApi::class.java)
     }
+
+
+    @Provides
+    @Singleton
+    fun providesRoutesRepository() = RoutesRemoteDataSource()
 
 }
