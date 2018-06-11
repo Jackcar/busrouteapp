@@ -2,6 +2,7 @@ package com.quicksilverbus.busroute.data.remote
 
 import com.quicksilverbus.busroute.App
 import com.quicksilverbus.busroute.data.RoutesDataSource
+import com.quicksilverbus.busroute.data.remote.model.RouteResponse
 import com.quicksilverbus.busroute.model.Route
 import io.reactivex.Observable
 import javax.inject.Inject
@@ -17,6 +18,7 @@ class RoutesRemoteDataSource : RoutesDataSource {
 
     override fun routes(): Observable<List<Route>> {
         return mApi.routes()
+                .map { RouteResponse -> RouteResponse.routes }
     }
 
 }

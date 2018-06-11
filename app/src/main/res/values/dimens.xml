@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Texts -->
+    <dimen name="text_size_xsmall">11sp</dimen>
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="text_size_medium">14sp</dimen>
+    <dimen name="text_size_large">18sp</dimen>
+    <dimen name="text_size_xlarge">20sp</dimen>
+    <dimen name="text_size_xxlarge">24sp</dimen>
+    <dimen name="text_size_xxxlarge">30sp</dimen>
+
+    <!-- Paddings -->
+    <dimen name="padding_size_xsmall">5dp</dimen>
+    <dimen name="padding_size_small">10dp</dimen>
+    <dimen name="padding_size_medium">15dp</dimen>
+    <dimen name="padding_size_large">20dp</dimen>
+    <dimen name="padding_size_xlarge">25dp</dimen>
+
+
+    <!-- Movies List -->
+    <dimen name="movie_item_height">200dp</dimen>
+    <dimen name="movie_item_shadow_height">150dp</dimen>
+    <dimen name="movie_item_text_padding">15dp</dimen>
+    <dimen name="movie_item_rating">60dp</dimen>
+    <dimen name="movie_item_star_rating">15dp</dimen>
+
+    <!-- Movie Details -->
+    <dimen name="movie_details_cover_height">200dp</dimen>
+    <dimen name="movie_details_favorite_margin">20dp</dimen>
+    <dimen name="movie_details_ic_play">40dp</dimen>
+    <dimen name="movie_details_padding">10dp</dimen>
+    <dimen name="movie_details_title_padding">10dp</dimen>
+    <dimen name="movie_details_text_padding">5dp</dimen>
+    <dimen name="movie_details_poster_top_margin">-16dp</dimen>
+    <dimen name="movie_details_poster_left_margin">16dp</dimen>
+
+    <dimen name="movie_details_poster_margin">180dp</dimen>
+    <dimen name="movie_details_poster_width">100dp</dimen>
+    <dimen name="movie_details_poster_height">150dp</dimen>
+
+    <dimen name="movie_details_play_button_margin">150dp</dimen>
+
+    <dimen name="movie_details_responsive_width">@dimen/match_parent</dimen>
+    <dimen name="movie_details_anchor_height">@dimen/match_parent</dimen>
+    <dimen name="movie_details_margin">0dp</dimen>
+    <dimen name="movie_details_content_margin_bottom">0dp</dimen>
+
+    <item name="match_parent" type="dimen">-1</item>
+    <item name="wrap_content" type="dimen">-2</item>
+</resources>

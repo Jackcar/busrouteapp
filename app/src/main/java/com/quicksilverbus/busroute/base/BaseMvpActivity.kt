@@ -3,8 +3,8 @@ package com.quicksilverbus.busroute.base
 import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.view.MenuItem
 import android.widget.Toast
+import kotlinx.android.synthetic.main.toolbar.*
 
 abstract class BaseMvpActivity<in V : BaseMvpView, T : BaseMvpPresenter<V>>
     : AppCompatActivity(), BaseMvpView {
@@ -23,10 +23,6 @@ abstract class BaseMvpActivity<in V : BaseMvpView, T : BaseMvpPresenter<V>>
         mPresenter.attachView(this as V)
 
         setupToolbar()
-    }
-
-    override fun attachBaseContext(newBase: Context?) {
-
     }
 
     override fun onDestroy() {
@@ -48,11 +44,11 @@ abstract class BaseMvpActivity<in V : BaseMvpView, T : BaseMvpPresenter<V>>
     // ==========================================================================================
 
     private fun setupToolbar() {
-//        toolbar.let {
-//            setSupportActionBar(toolbar)
-//            supportActionBar?.setDisplayHomeAsUpEnabled(true)
-//            supportActionBar?.setDisplayShowTitleEnabled(true)
-//        }
+        toolbar.let {
+            setSupportActionBar(toolbar)
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            supportActionBar?.setDisplayShowTitleEnabled(true)
+        }
     }
 
     // ==========================================================================================

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.quicksilverbus.busroute.R
 import com.quicksilverbus.busroute.model.Route
+import com.quicksilverbus.busroute.util.Utils
 import kotlinx.android.synthetic.main.route_list_item.view.*
 
 class RoutesAdapter : RecyclerView.Adapter<RoutesAdapter.ViewHolder> {
@@ -43,7 +44,8 @@ class RoutesAdapter : RecyclerView.Adapter<RoutesAdapter.ViewHolder> {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(route: Route, listener: (View, Route) -> Unit) = with(itemView) {
-            nameTextView.text = route.name
+            routeNameTextView.text = route.name
+            Utils.loadImage(route.image, rootView.context, routeImageView)
 
             setOnClickListener { listener(itemView, route) }
         }
