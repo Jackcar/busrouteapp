@@ -39,16 +39,17 @@ class RouteListActivity : BaseMvpActivity<RouteListContract.View, RouteListContr
     }
 
     private fun setupRecyclerView() {
-        // Setup layout manager
-        val linearLayoutManager = LinearLayoutManager(context())
-        routeRecyclerView.layoutManager = linearLayoutManager
-
         // Set adapter to recycler view
         mRoutesAdapter = RoutesAdapter(ArrayList(0)) { view, route ->
             // Execute onClick
             onRouteClick(view, route)
         }
-        routeRecyclerView.adapter = mRoutesAdapter
+
+        with(routeRecyclerView) {
+            // Setup layout manager
+            layoutManager = LinearLayoutManager(context())
+            adapter = mRoutesAdapter
+        }
     }
 
     // ==========================================================================================

@@ -1,12 +1,12 @@
 package com.quicksilverbus.busroute.features.routeDetails
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.quicksilverbus.busroute.R
 import com.quicksilverbus.busroute.base.BaseMvpActivity
 import com.quicksilverbus.busroute.model.Route
-import kotlinx.android.synthetic.main.activity_route_list.*
+import com.quicksilverbus.busroute.util.Utils
+import kotlinx.android.synthetic.main.route_details_activity.*
 
 class RouteDetailsActivity : BaseMvpActivity<RouteDetailsContract.View, RouteDetailsContract.Presenter>(), RouteDetailsContract.View {
 
@@ -20,18 +20,20 @@ class RouteDetailsActivity : BaseMvpActivity<RouteDetailsContract.View, RouteDet
     // LIFECYCLE
     // ==========================================================================================
 
-    override fun getLayout() = R.layout.activity_route_list
+    override fun getLayout() = R.layout.route_details_activity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        mPresenter.getRoutes()
+        // Get the requested route
+        val route = intent.getSerializableExtra(EXTRA_ROUTE) as Route
+
+        mPresenter.showRouteDetails(route)
     }
 
     // ==========================================================================================
     // SETUP
     // ==========================================================================================
-
 
 
     // ==========================================================================================
@@ -49,8 +51,24 @@ class RouteDetailsActivity : BaseMvpActivity<RouteDetailsContract.View, RouteDet
     // VIEW
     // ==========================================================================================
 
-    override fun showDetails() {
-
+    override fun showTitle(title: String) {
+        routeNameTextView.text = title
     }
+
+    override fun showImage(imageUrl: String) {
+        Utils.loadImage(imageUrl, this, routeImageView)
+    }
+
+    override fun showAccessible(accessible: Boolean) {
+        accessibilityImageView.visibility = if (accessible) View.VISIBLE else View.INVISIBLE
+    }
+
+    override fun showDescription(description: String) {
+        routeDescriptionTextView.text = description
+    }
+
+    override fun showStops(stops: List<Route>) {
+    }
+
 
 }

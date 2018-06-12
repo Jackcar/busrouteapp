@@ -19,14 +19,13 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:padding="@dimen/padding_size_small"
-            android:src="@drawable/ic_bus"
-            android:textSize="12sp" />
+            android:src="@drawable/ic_bus" />
 
         <View
             android:layout_width="1dp"
             android:layout_height="match_parent"
-            android:layout_marginBottom="@dimen/padding_size_xsmall"
-            android:layout_marginTop="@dimen/padding_size_xsmall"
+            android:layout_marginBottom="@dimen/padding_size_large"
+            android:layout_marginTop="@dimen/padding_size_large"
             android:background="@color/contentDivider" />
 
         <LinearLayout

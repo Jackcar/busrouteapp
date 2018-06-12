@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -12,4 +13,59 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f4f4f4"
+        android:elevation="5dp"
+        android:padding="@dimen/padding_size_small"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <ImageView
+            android:id="@+id/routeImageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="@dimen/padding_size_xsmall"
+            android:padding="@dimen/padding_size_small"
+            android:src="@drawable/ic_bus"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/routeNameTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_size_xsmall"
+            android:layout_marginBottom="8dp"
+            android:padding="@dimen/padding_size_xsmall"
+            android:textAllCaps="true"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/text_size_large"
+            app:layout_constraintBottom_toBottomOf="@+id/accessibilityImageView"
+            app:layout_constraintEnd_toStartOf="@+id/accessibilityImageView"
+            app:layout_constraintStart_toEndOf="@+id/routeImageView"
+            tools:text="Deep Coral" />
+
+        <TextView
+            android:id="@+id/routeDescriptionTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_size_xsmall"
+            android:padding="@dimen/padding_size_xsmall"
+            android:textColor="@color/lightGray"
+            android:textSize="@dimen/text_size_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/routeImageView"
+            app:layout_constraintTop_toBottomOf="@+id/routeNameTextView"
+            tools:text="Route between Mt View and Nevada. Total 4 stops. Buses have accessible access." />
+
+        <ImageView
+            android:id="@+id/accessibilityImageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="@dimen/padding_size_xsmall"
+            android:src="@drawable/ic_accessible"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
 </android.support.constraint.ConstraintLayout>

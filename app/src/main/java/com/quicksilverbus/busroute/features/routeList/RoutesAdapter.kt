@@ -45,6 +45,7 @@ class RoutesAdapter : RecyclerView.Adapter<RoutesAdapter.ViewHolder> {
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(route: Route, listener: (View, Route) -> Unit) = with(itemView) {
             routeNameTextView.text = route.name
+            routeStopTextView.text = route.stops.size.toString()
             Utils.loadImage(route.image, rootView.context, routeImageView)
 
             setOnClickListener { listener(itemView, route) }
