@@ -1,9 +1,11 @@
 package com.quicksilverbus.busroute.features.routeDetails
 
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.quicksilverbus.busroute.R
 import com.quicksilverbus.busroute.base.BaseMvpActivity
+import com.quicksilverbus.busroute.features.routeList.RoutesAdapter
 import com.quicksilverbus.busroute.model.Route
 import com.quicksilverbus.busroute.util.Utils
 import kotlinx.android.synthetic.main.route_details_activity.*
@@ -15,6 +17,8 @@ class RouteDetailsActivity : BaseMvpActivity<RouteDetailsContract.View, RouteDet
     }
 
     override var mPresenter: RouteDetailsContract.Presenter = RouteDetailsPresenter()
+
+    private lateinit var mStopsAdapter: StopsAdapter
 
     // ==========================================================================================
     // LIFECYCLE
@@ -28,6 +32,7 @@ class RouteDetailsActivity : BaseMvpActivity<RouteDetailsContract.View, RouteDet
         // Get the requested route
         val route = intent.getSerializableExtra(EXTRA_ROUTE) as Route
 
+        setupRecyclerView()
         mPresenter.showRouteDetails(route)
     }
 
@@ -35,16 +40,20 @@ class RouteDetailsActivity : BaseMvpActivity<RouteDetailsContract.View, RouteDet
     // SETUP
     // ==========================================================================================
 
+    private fun setupRecyclerView() {
+        // Set adapter to recycler view
+        mStopsAdapter = StopsAdapter(ArrayList(0))
+
+        with(stopsRecyclerView) {
+            // Setup layout manager
+            layoutManager = LinearLayoutManager(context())
+            adapter = mStopsAdapter
+        }
+    }
 
     // ==========================================================================================
     // ACTIONS
     // ==========================================================================================
-
-    private fun onRouteClick(view: View, route: Route) {
-//        val intent = Intent(activity, MovieDetailsActivity::class.java)
-//        intent.putExtra(MovieDetailsActivity.EXTRA_MOVIE, movie)
-//        startActivity(intent, options.toBundle())
-    }
 
 
     // ==========================================================================================
@@ -68,6 +77,7 @@ class RouteDetailsActivity : BaseMvpActivity<RouteDetailsContract.View, RouteDet
     }
 
     override fun showStops(stops: List<Route>) {
+        mStopsAdapter.add(stops)
     }
 
 

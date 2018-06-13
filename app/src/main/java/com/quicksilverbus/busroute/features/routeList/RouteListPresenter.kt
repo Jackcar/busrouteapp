@@ -21,7 +21,7 @@ class RouteListPresenter : BaseMvpPresenterImpl<RouteListContract.View>(), Route
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .doOnSubscribe { mView?.showLoading() }
-                .doOnTerminate {}
+                .doOnTerminate { mView?.dismissLoading() }
                 .subscribe(
                         { routes ->
                             mView?.displayRoutes(routes)

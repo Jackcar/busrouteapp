@@ -10,8 +10,12 @@ import com.quicksilverbus.busroute.features.routeDetails.RouteDetailsActivity
 import com.quicksilverbus.busroute.model.Route
 import kotlinx.android.synthetic.main.activity_route_list.*
 import org.jetbrains.anko.startActivity
+import javax.inject.Inject
 
 class RouteListActivity : BaseMvpActivity<RouteListContract.View, RouteListContract.Presenter>(), RouteListContract.View {
+
+//    @Inject
+//    lateinit var mPresenter: RouteListContract.Presenter
     override var mPresenter: RouteListContract.Presenter = RouteListPresenter()
 
     private lateinit var mRoutesAdapter: RoutesAdapter
@@ -24,6 +28,7 @@ class RouteListActivity : BaseMvpActivity<RouteListContract.View, RouteListContr
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
 
         setupToolbar()
         setupRecyclerView()
@@ -65,11 +70,11 @@ class RouteListActivity : BaseMvpActivity<RouteListContract.View, RouteListContr
     // ==========================================================================================
 
     override fun showLoading() {
-
+        routesListProgressBar.visibility = View.VISIBLE
     }
 
     override fun dismissLoading() {
-
+        routesListProgressBar.visibility = View.INVISIBLE
     }
 
     override fun displayRoutes(routes: List<Route>) {
@@ -77,7 +82,7 @@ class RouteListActivity : BaseMvpActivity<RouteListContract.View, RouteListContr
     }
 
     override fun emptyList() {
-
+        noRoutesAvailableTextView.visibility = View.VISIBLE
     }
 
 }

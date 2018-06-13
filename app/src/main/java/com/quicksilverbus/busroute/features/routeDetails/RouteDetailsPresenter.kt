@@ -22,6 +22,7 @@ class RouteDetailsPresenter : BaseMvpPresenterImpl<RouteDetailsContract.View>(),
         mView?.showImage(route.image)
         mView?.showAccessible(route.accessible)
         mView?.showDescription(route.description)
+        mView?.showStops(route.stops)
     }
 
 }

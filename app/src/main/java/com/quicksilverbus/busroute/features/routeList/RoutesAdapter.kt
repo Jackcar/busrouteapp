@@ -15,18 +15,18 @@ class RoutesAdapter : RecyclerView.Adapter<RoutesAdapter.ViewHolder> {
 
     private var mListener: (View, Route) -> Unit
 
-    constructor(movies: List<Route>, listener: (View, Route) -> Unit) {
+    constructor(stops: List<Route>, listener: (View, Route) -> Unit) {
         mListener = listener
-        set(movies)
+        set(stops)
     }
 
-    fun set(movies: List<Route>) {
-        mRoutes = movies.toMutableList()
+    fun set(stops: List<Route>) {
+        mRoutes = stops.toMutableList()
         notifyDataSetChanged()
     }
 
-    fun add(movies: List<Route>) {
-        mRoutes.addAll(movies)
+    fun add(stops: List<Route>) {
+        mRoutes.addAll(stops)
         notifyDataSetChanged()
     }
 
@@ -34,7 +34,6 @@ class RoutesAdapter : RecyclerView.Adapter<RoutesAdapter.ViewHolder> {
         mRoutes.clear()
         notifyDataSetChanged()
     }
-
 
     override fun getItemCount() = mRoutes.size
 
@@ -45,7 +44,14 @@ class RoutesAdapter : RecyclerView.Adapter<RoutesAdapter.ViewHolder> {
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(route: Route, listener: (View, Route) -> Unit) = with(itemView) {
             routeNameTextView.text = route.name
-            routeStopTextView.text = route.stops.size.toString()
+
+            with(routeStopTextView) {
+                if(route.stops.size > 1)
+                    text = route.stops.size.toString() + " " + itemView.context.getString(R.string.route_list_activity_label_stops)
+                else
+                    text = route.stops.size.toString() + " "  + itemView.context.getString(R.string.route_list_activity_label_stop)
+            }
+
             Utils.loadImage(route.image, rootView.context, routeImageView)
 
             setOnClickListener { listener(itemView, route) }

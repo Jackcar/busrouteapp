@@ -4,5 +4,9 @@
 
 
     <!--    ROUTE LIST ACTIVITY    -->
-    <string name="route_list_activity_stops">Stops</string>
+    <string name="route_list_activity_label_stop">Stops</string>
+    <string name="route_list_activity_label_stops">Stops</string>
+    <string name="route_list_activity_backdrop_title">Choose a route</string>
+    <string name="route_list_activity_backdrop_subtitle">Several routes with different stops</string>
+    <string name="route_list_activity_no_results">No routes available :(</string>
 </resources>
