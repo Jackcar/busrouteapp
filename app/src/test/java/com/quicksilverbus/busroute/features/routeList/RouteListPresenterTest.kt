@@ -2,6 +2,7 @@ package com.quicksilverbus.busroute.features.routeList
 
 import com.nhaarman.mockito_kotlin.doReturn
 import com.nhaarman.mockito_kotlin.mock
+import com.nhaarman.mockito_kotlin.verify
 import com.quicksilverbus.busroute.data.RoutesRepository
 import com.quicksilverbus.busroute.data.remote.model.RouteResponse
 import io.reactivex.Observable
@@ -12,12 +13,11 @@ import org.junit.Test
 class RouteListPresenterTest {
 
     private val mView: RouteListContract.View = mock()
-    private val mRoutesRepository: RoutesRepository = mock()
-    private lateinit var mPresenter: RouteListPresenter
+    private var mRoutesRepository: RoutesRepository = mock()
+    private var mPresenter: RouteListPresenter = mock()
 
     @Before
     fun setup() {
-        mPresenter = RouteListPresenter()
         mPresenter.attachView(mView)
     }
 
@@ -29,11 +29,16 @@ class RouteListPresenterTest {
                 .`when`(mRoutesRepository)
                 .routes()
 
+        mPresenter.getRoutes()
+
+        verify(mView).showLoading()
+        verify(mView).dismissLoading()
+        verify(mView).displayRoutes(mockedResponse.routes)
     }
 
 
     @After
-    fun finish() {
+    fun tearDown() {
         mPresenter.detachView()
     }
 }
