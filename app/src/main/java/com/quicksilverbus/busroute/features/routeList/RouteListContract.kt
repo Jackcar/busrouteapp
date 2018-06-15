@@ -12,6 +12,7 @@ object RouteListContract {
         fun dismissLoading()
         fun displayRoutes(routes: List<Route>)
         fun emptyList()
+        fun showNoConnection()
     }
 
     interface Presenter : BaseMvpPresenter<View> {

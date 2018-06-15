@@ -8,9 +8,11 @@ import com.bumptech.glide.request.RequestOptions
 class Utils {
     companion object {
         @JvmStatic
-        fun loadImage(url: String?, context: Context, imageView: ImageView) {
+        fun loadImage(url: String?, context: Context, imageView: ImageView, placeHolder: Int) {
             url.let {
                 val options = RequestOptions().centerCrop()
+                        .placeholder(placeHolder)
+
                 Glide.with(context)
                         .load(url)
                         .apply(options)

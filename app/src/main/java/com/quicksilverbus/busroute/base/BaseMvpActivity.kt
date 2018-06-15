@@ -7,12 +7,14 @@ import android.view.MenuItem
 import android.widget.Toast
 import kotlinx.android.synthetic.main.toolbar.*
 
-abstract class BaseMvpActivity<in V : BaseMvpView, T : BaseMvpPresenter<V>>
+abstract class BaseMvpActivity<in V : BaseMvpView>
     : AppCompatActivity(), BaseMvpView {
 
-    protected abstract var mPresenter: T
+    private var mPresenter: BaseMvpPresenter<V>? = null
 
     abstract fun getLayout(): Int
+
+    abstract fun onActivityInjected()
 
     // ==========================================================================================
     // LIFECYCLE
@@ -21,14 +23,14 @@ abstract class BaseMvpActivity<in V : BaseMvpView, T : BaseMvpPresenter<V>>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(getLayout())
-        mPresenter.attachView(this as V)
+        onActivityInjected()
 
         setupToolbar()
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        mPresenter.detachView()
+        mPresenter?.detachView()
     }
 
     // ==========================================================================================

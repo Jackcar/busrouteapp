@@ -17,12 +17,4 @@ class RouteDetailsPresenter : BaseMvpPresenterImpl<RouteDetailsContract.View>(),
         App.appComponent().inject(this)
     }
 
-    override fun showRouteDetails(route: Route) {
-        mView?.showTitle(route.name)
-        mView?.showImage(route.image)
-        mView?.showAccessible(route.accessible)
-        mView?.showDescription(route.description)
-        mView?.showStops(route.stops)
-    }
-
 }

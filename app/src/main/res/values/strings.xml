@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Bus Route</string>
 
+    <!--    ERRORS    -->
+    <string name="error_no_connection">You are offline. Check your connection</string>
 
 
     <!--    ROUTE LIST ACTIVITY    -->

@@ -10,7 +10,7 @@
         android:layout_width="@dimen/stop_line_width"
         android:layout_height="match_parent"
         android:layout_marginLeft="@dimen/padding_size_large"
-        android:layout_marginTop="@dimen/padding_size_xsmall">
+        android:layout_marginTop="@dimen/padding_size_3">
 
         <View
             android:id="@+id/circle_ic"
@@ -39,7 +39,7 @@
         android:clickable="true"
         android:orientation="vertical"
         android:paddingBottom="32dp"
-        android:paddingLeft="24dp">
+        android:paddingLeft="25dp">
 
         <TextView
             android:id="@+id/stopNameTextView"

@@ -10,6 +10,7 @@
     <dimen name="text_size_xxxlarge">30sp</dimen>
 
     <!-- Paddings -->
+    <dimen name="padding_size_3">3dp</dimen>
     <dimen name="padding_size_xsmall">5dp</dimen>
     <dimen name="padding_size_small">10dp</dimen>
     <dimen name="padding_size_medium">15dp</dimen>

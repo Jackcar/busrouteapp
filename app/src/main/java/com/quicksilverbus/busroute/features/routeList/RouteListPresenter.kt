@@ -3,6 +3,7 @@ package com.quicksilverbus.busroute.features.routeList
 import com.quicksilverbus.busroute.App
 import com.quicksilverbus.busroute.base.BaseMvpPresenterImpl
 import com.quicksilverbus.busroute.data.RoutesRepository
+import com.quicksilverbus.busroute.exception.NoNetworkException
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
@@ -27,6 +28,8 @@ class RouteListPresenter : BaseMvpPresenterImpl<RouteListContract.View>(), Route
                             mView?.displayRoutes(routes)
                         },
                         { e ->
+                            if (e is NoNetworkException) mView?.showNoConnection()
+
                             mView?.emptyList()
                         }
                 )

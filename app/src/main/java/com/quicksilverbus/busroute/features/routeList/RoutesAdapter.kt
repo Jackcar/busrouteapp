@@ -52,7 +52,7 @@ class RoutesAdapter : RecyclerView.Adapter<RoutesAdapter.ViewHolder> {
                     text = route.stops.size.toString() + " "  + itemView.context.getString(R.string.route_list_activity_label_stop)
             }
 
-            Utils.loadImage(route.image, rootView.context, routeImageView)
+            Utils.loadImage(route.image, rootView.context, routeImageView, R.drawable.ic_bus)
 
             setOnClickListener { listener(itemView, route) }
         }
